@@ -213,7 +213,6 @@ router.post('/findProjectDetails', function(req, res, next) {
 //------ Update contributors & currentAmount ----//
 
 router.put('/updateBudget', function(req, res, next) {
-  console.log('ce body des fams', req.body)
 ProjectModel.updateOne(
     { _id: req.body._id},
     { contributors: req.body.contributors, currentAmount: req.body.currentAmount },
@@ -227,7 +226,6 @@ ProjectModel.updateOne(
 
 
 router.put('/updateProject', function(req, res, next) {
-  console.log('ce body des fams', req.body)
 ProjectModel.updateOne(
     { _id: req.body._id},
     { projectStory: req.body.projectStory,
@@ -257,8 +255,6 @@ ProjectModel.updateOne(
 
 //------ Delete  ----//
 router.post("/removeProject", function(req, res) {
-  console.log('ce body des fams', req.body)
-
   ProjectModel.deleteOne(
     {_id: req.body._id},
     function(error, raw) {

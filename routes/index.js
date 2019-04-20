@@ -5,7 +5,7 @@ var request = require('request');
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 
-const stripe = require("stripe")("sk_test_HbHWi1IeO16mFOxPJWEcj3Fb");
+const stripe = require("stripe")("xxxxxxxx");
 
 router.use(require("body-parser").text());
 
@@ -21,7 +21,7 @@ var options = {
 };
 
 /*mongoose.connect function defines calls to mlab database*/
-mongoose.connect('mongodb://theoben:Theoben54180@ds119685.mlab.com:19685/beproudofyou',
+mongoose.connect('xxxxxxxxxx',
   options,
   function(err) {
     console.log(err);
@@ -298,7 +298,6 @@ router.post('/charge', async (req, res) => {
         }
     }
 
-console.log(req.body)
 
   const client = {
     email: req.body.token.email,
@@ -326,19 +325,17 @@ console.log(req.body)
 
 router.post("/sendemail", function(req, res) {
 
-console.log("les emaisl", req.body)
-
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'beproudofyoutogo',
-    pass: 'vstogo2019'
+    user: 'xxxxx',
+    pass: 'xxxxxx'
   }
 });
 
 var mailOptions = {
   from: req.body.email,
-  to: 'beproudofyoutogo@gmail.com',
+  to: 'xxxxxx',
   subject: req.body.subject + '  //  '+ req.body.email + '  //  ' + req.body.name,
   text: req.body.textArea,
 
